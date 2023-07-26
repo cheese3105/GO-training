@@ -20,7 +20,8 @@ class User {
         $conn = connectDB();
         $sql = "INSERT INTO users(username, password, fullname, email) VALUES (?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "ssss", $this->username, md5($this->password), $this->fullname, $this->email);
+        $hash_password = md5($this->password);
+        mysqli_stmt_bind_param($stmt, "ssss", $this->username, $hash_password, $this->fullname, $this->email);
         mysqli_stmt_execute($stmt);
 
         if (mysqli_stmt_affected_rows($stmt) > 0) {
