@@ -9,7 +9,7 @@
 	<div class="main welcome">  
 		<div class="content">	
 			<h2 id="greeting">Hello</h2>
-			<?php echo "<h1 id=\"wc-name\">".$fullname."</h1>" ?>
+			<?php echo "<h1 id=\"wc-name\">".$username."</h1>" ?>
 			<h2 id="greeting2">Welcome to my Webpage </h2>
 			<form method="post" action="index.php?controller=authen&action=logout">
 				<button>Sign out</button>

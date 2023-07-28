@@ -16,7 +16,7 @@ class PagesController extends BaseController
         }
         else {
             $data = array (
-                'fullname' => $_SESSION['fullname']
+                'username' => $_SESSION['username']
             );
             $this->render('home',$data);
         }

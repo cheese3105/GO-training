@@ -50,8 +50,7 @@ class AuthenController extends BaseController
             $password = $_POST['passwd'];
             $user = new User($username, $password);
             if($user->login()) {
-                $_SESSION['username'] = $this->username;
-                $_SESSION['fullname'] = $fullname;
+                $_SESSION['username'] = $username;
                 $controller = 'pages';
                 $action = 'home';
                 require('routes.php');
