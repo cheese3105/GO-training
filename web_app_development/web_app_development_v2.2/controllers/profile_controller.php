@@ -11,6 +11,11 @@ class ProfileController extends BaseController
 
     public function view()
     {
+        if( !isset( $_SESSION['username'] ) ) {
+            $this->folder = 'authen';
+            $this->render('form');
+        }
+        else {
         $data = array (
             'username' => $_SESSION['username'],
             'fullname' => $_SESSION['fullname'],
@@ -18,14 +23,11 @@ class ProfileController extends BaseController
             'email' => $_SESSION['email']
         );
         $this->render('profile',$data);
+        }
     }
 
     public function update()
     {
-        if( !isset( $_SESSION['username'] ) ) {
-            $this->folder = 'authen';
-            $this->render('form');
-        }
 
         if (isset($_POST['submit'])) 
         {
